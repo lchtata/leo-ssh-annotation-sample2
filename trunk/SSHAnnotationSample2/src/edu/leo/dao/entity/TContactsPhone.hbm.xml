@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/07/03 14:17:39 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="TContactsPhone" table="t_contacts_phone" catalog="SSHAnnotationSample2">
+        <composite-id name="id" class="TContactsPhoneId">
+            <key-property name="contactsSeq" type="java.lang.Long">
+                <column name="contacts_seq" precision="18" scale="0" />
+            </key-property>
+            <key-property name="phoneType" type="string">
+                <column name="phone_type" length="2" />
+            </key-property>
+        </composite-id>
+        <property name="phoneLabel" type="string">
+            <column name="phone_label" length="20">
+                <comment>&#131;&#134;&#129;[&#131;U&#146;&#232;&#139;`&#131;^&#131;C&#131;v</comment>
+            </column>
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="phone_number" length="11">
+                <comment>&#147;d&#152;b&#148;&#212;&#141;&#134;</comment>
+            </column>
+        </property>
+        <property name="insDate" type="timestamp">
+            <column name="ins_date" length="19">
+                <comment>&#147;o&#152;^&#147;&#250;&#142;&#158;</comment>
+            </column>
+        </property>
+        <property name="insUserId" type="string">
+            <column name="ins_user_id" length="20">
+                <comment>&#147;o&#152;^&#131;&#134;&#129;[&#131;U&#129;[ID</comment>
+            </column>
+        </property>
+        <property name="updDate" type="timestamp">
+            <column name="upd_date" length="19">
+                <comment>&#141;X&#144;V&#147;&#250;&#142;&#158;</comment>
+            </column>
+        </property>
+        <property name="updUserId" type="string">
+            <column name="upd_user_id" length="20">
+                <comment>&#141;X&#144;V&#131;&#134;&#129;[&#131;U&#129;[ID</comment>
+            </column>
+        </property>
+        <property name="delDate" type="timestamp">
+            <column name="del_date" length="19">
+                <comment>&#141;&#237;&#143;&#156;&#147;&#250;&#142;&#158;</comment>
+            </column>
+        </property>
+        <property name="delUserId" type="string">
+            <column name="del_user_id" length="20">
+                <comment>&#141;&#237;&#143;&#156;&#131;&#134;&#129;[&#131;U&#129;[ID</comment>
+            </column>
+        </property>
+        <property name="delFlg" type="string">
+            <column name="del_flg" length="1">
+                <comment>&#141;&#237;&#143;&#156;&#131;t&#131;&#137;&#131;O</comment>
+            </column>
+        </property>
+        <property name="updCnt" type="java.lang.Long">
+            <column name="upd_cnt">
+                <comment>&#141;X&#144;V&#137;&#241;&#144;&#148;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>html -- rgb</title>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+</head>
+<script language="JavaScript" type="text/javascript">
+	//jQuery Onload
+	$(document).ready(function() {
+
+	});
+
+	function showRGB() {
+		var red = $("input[name='red']").val();
+		var green = $("input[name='green']").val();
+		var blue = $("input[name='blue']").val();
+
+		toHex = function(d) {
+			if (isNaN(d)) {
+				d = 0;
+			}
+			if (d > 255) {
+				d = 255;
+			}
+			var n = new Number(d).toString(16);
+			return (n.length == 1 ? "0" + n : n);
+		}
+
+		hexcode = "#" + toHex(red) + toHex(green) + toHex(blue);
+
+		$("input[name='test1resultinput']").val(hexcode);
+		$("#test1resultcolor").attr("bgColor", hexcode);
+	}
+
+	function showHtmlColor() {
+
+		var hexcode = $("input[name='t2Rgb']").val();
+
+		if (isHexNum(hexcode) && hexcode.length < 7) {
+			hexcode = hexcode.toLowerCase();
+			if (hexcode.length == 6) {
+
+				var sdx = hexcode.substring(0, 2);
+				var result = hexToDeci(sdx)
+
+				sdx = hexcode.substring(2, 4);
+				result = result + "," + hexToDeci(sdx)
+
+				sdx = hexcode.substring(4, 6);
+				result = result + "," + hexToDeci(sdx)
+
+				$("input[name='test2resultinput']").val(result);
+				$("#test2resultcolor").attr("bgColor", "#" + hexcode);
+
+			} else {
+				document.third.rgbcolor.value = "";
+			}
+		} else {
+
+			document.third.hexcolor.value = sd.substring(0, sd.length - 1);
+			//alert("Give Proper Integer Value");
+		}
+	}
+
+	function isHexNum(num) {
+		args = num;
+		sdsf = args.substring(args.length - 1, args.length);
+		//document.third.hexBin.value = sdsf;
+		lc = sdsf.toLowerCase()
+		if (isNum(sdsf) || lc == 'a' || lc == 'b' || lc == 'c' || lc == 'd'
+				|| lc == 'e' || lc == 'f') {
+			return true;
+		}
+		return false;
+	}
+	function isNum(args) {
+		args = args.toString();
+		if (args.length == 0)
+			return false;
+		for ( var i = 0; i < args.length; i++) {
+			if (args.substring(i, i + 1) < "0"
+					|| args.substring(i, i + 1) > "9") {
+				return false;
+			}
+		}
+		return true;
+	}
+	function hexToDeci(num) {
+		res4 = 999;
+		args = num;
+		k = args.length - 1;
+		for ( var i = 0; i < args.length; i++) {
+			thisnum = args.substring(i, i + 1);
+			var resd = Math.pow(16, k);
+			if (thisnum == 'a')
+				thisnum = 10;
+			else if (thisnum == 'b')
+				thisnum = 11;
+			else if (thisnum == 'c')
+				thisnum = 12;
+			else if (thisnum == 'd')
+				thisnum = 13;
+			else if (thisnum == 'e')
+				thisnum = 14;
+			else if (thisnum == 'f')
+				thisnum = 15;
+			resd = resd * thisnum;
+			k = k - 1;
+			if (res4 == 999) {
+				res4 = resd.toString();
+			} else {
+				res4 = parseInt(res4) + parseInt(resd);
+			}
+		}
+		return res4;
+	}
+
+</script>
+
+<body>
+	<TABLE borderColor=blue border=5 borderlight="green">
+		<TBODY>
+			<TR>
+				<TD align=middle><STRONG><FONT color=red size=3>rgb - > html</FONT></STRONG></TD>
+			</TR>
+			<TR>
+				<TD align=middle>
+					<FORM id=mowang>
+						<INPUT size=3 maxlength="3" value=100 name=red>
+						<INPUT size=3 maxlength="3" value=255 name=green>
+						<INPUT size=3 maxlength="3" value=0 name=blue>
+						<INPUT onclick=showRGB() type=button value=转>
+						<BR>
+						<INPUT name=test1resultinput>
+					</FORM>
+					<TABLE id=test1resultcolor width=60>
+						<TBODY>
+							<TR>
+								<TD>&nbsp;</TD>
+							</TR>
+						</TBODY>
+					</TABLE> </SCRIPT>
+				</TD>
+			</TR>
+		</TBODY>
+	</TABLE>
+
+	<br>
+
+	<TABLE borderColor=blue border=5 borderlight="green">
+		<TBODY>
+			<TR>
+				<TD align=middle><STRONG><FONT color=red size=3>html - > rgb</FONT></STRONG></TD>
+			</TR>
+			<TR>
+				<TD align=middle>
+					<FORM id=mowang>
+						#<INPUT size=6 value=64FF00 name=t2Rgb maxlength="6">
+						<INPUT onclick=showHtmlColor() type=button value=转>
+						<BR>
+						<INPUT name=test2resultinput>
+					</FORM>
+					<TABLE id=test2resultcolor width=60>
+						<TBODY>
+							<TR>
+								<TD>&nbsp;</TD>
+							</TR>
+						</TBODY>
+					</TABLE> </SCRIPT>
+				</TD>
+			</TR>
+		</TBODY>
+	</TABLE>
+
+</body>
+</html>

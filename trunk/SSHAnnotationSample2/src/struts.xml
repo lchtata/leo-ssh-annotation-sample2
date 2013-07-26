@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <!-- 指定Struts 2默认的ObjectFactory Bean - 交给Spring管理 -->
+    <constant name="struts.objectFactory" value="spring" />
+
+    <!-- <constant name="struts.action.extension" value="do" /> -->
+    <constant name="struts.locale" value="ja_JP" />
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <!-- struts2主题使用单一模式 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.custom.i18n.resources" value="message,validate" />
+    <!-- 可以调用静态方法 -->
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+
+    <!-- 开发者模式 -->
+    <constant name="struts.devMode" value="false" />
+
+
+    <!-- 设置需要过滤action的package(annotation注解) -->
+    <constant name="struts.convention.package.locators" value="edu.leo,action" />
+    <constant name="struts.convention.classes.reload" value="true" />
+
+    <!-- package提供了将多个Action组织为一个模块的方式
+        package的名字必须是唯一的 package可以扩展 当一个package扩展自
+        另一个package时该package会在本身配置的基础上加入扩展的package
+        的配置 父package必须在子package前配置
+        name：package名称
+        extends:继承的父package名称
+        abstract:设置package的属性为抽象的 抽象的package不能定义action 值true:false
+        namespace:定义package命名空间 该命名空间影响到url的地址，例如此命名空间为/test那么访问是的地址为http://localhost:8080/struts2/test/XX.action
+     -->
+    <package name="default" extends="struts-default">
+         <!-- 定义拦截器
+                name:拦截器名称
+                class:拦截器类路径
+             -->
+        <interceptors>
+            <interceptor name="loginInterceptor" class="edu.leo.common.interceptor.LoginInterceptor">
+                <param name="excludeMethods">logout</param>
+            </interceptor>
+            <interceptor name="annotationWorkflow" class="com.opensymphony.xwork2.interceptor.annotations.AnnotationWorkflowInterceptor" />
+            <interceptor name="exception" class="com.opensymphony.xwork2.interceptor.ExceptionMappingInterceptor" />
+            <interceptor-stack name="leostack">
+                <!-- 倒入默认拦截器配置，不然无法取到值 -->
+                <interceptor-ref name="defaultStack"/>
+
+                <interceptor-ref name="loginInterceptor" />
+                <interceptor-ref name="annotationWorkflow" />
+                <interceptor-ref name="exception">
+                    <param name="logEnabled">true</param>
+                    <param name="logLevel">WARN</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <!-- 将上述拦截器设定为默认拦截器 -->
+        <default-interceptor-ref name="leostack" />
+
+        <global-results>
+            <result name="loginfw">/WEB-INF/jsp/login.jsp</result>
+            <result name="unhandledException">/WEB-INF/jsp/error.jsp</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping result="unhandledException" exception="java.lang.Throwable" />
+        </global-exception-mappings>
+    </package>
+</struts>

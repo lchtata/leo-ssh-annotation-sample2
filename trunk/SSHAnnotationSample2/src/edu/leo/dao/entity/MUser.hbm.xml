@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/07/03 14:17:39 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="MUser" table="m_user" catalog="SSHAnnotationSample2">
+        <id name="userId" type="java.lang.Long">
+            <column name="user_id" precision="18" scale="0" />
+            <generator class="org.hibernate.id.enhanced.TableGenerator">
+               <param name="segment_value">MUser</param>
+            </generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="94">
+                <comment>&#150;&#188;&#145;O</comment>
+            </column>
+        </property>
+        <property name="loginId" type="string">
+            <column name="login_id" length="50">
+                <comment>&#131;&#141;&#131;O&#131;C&#131;&#147;ID</comment>
+            </column>
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="100">
+                <comment>&#131;p&#131;X&#131;&#143;&#129;[&#131;h</comment>
+            </column>
+        </property>
+        <property name="loginDate" type="timestamp">
+            <column name="login_date" length="19">
+                <comment>&#141;&#197;&#143;I&#131;&#141;&#131;O&#131;C&#131;&#147;&#147;&#250;&#142;&#158;</comment>
+            </column>
+        </property>
+        <property name="lastPwdMod" type="string">
+            <column name="last_pwd_mod" length="8">
+                <comment>&#141;&#197;&#143;I&#131;p&#131;X&#131;&#143;&#129;[&#131;h&#149;&#207;&#141;X&#147;&#250;&#149;t</comment>
+            </column>
+        </property>
+        <property name="pwdFailCnt" type="java.lang.Integer">
+            <column name="pwd_fail_cnt" precision="2" scale="0">
+                <comment>&#152;A&#145;&#177;&#131;p&#131;X&#131;&#143;&#129;[&#131;h&#138;&#212;&#136;&#225;&#130;&#162;&#137;&#241;&#144;&#148;</comment>
+            </column>
+        </property>
+        <property name="insDate" type="timestamp">
+            <column name="ins_date" length="19">
+                <comment>&#147;o&#152;^&#147;&#250;&#142;&#158;</comment>
+            </column>
+        </property>
+        <property name="insUserId" type="string">
+            <column name="ins_user_id" length="20">
+                <comment>&#147;o&#152;^&#131;&#134;&#129;[&#131;U&#129;[</comment>
+            </column>
+        </property>
+        <property name="updDate" type="timestamp">
+            <column name="upd_date" length="19">
+                <comment>&#141;X&#144;V&#147;&#250;&#142;&#158;</comment>
+            </column>
+        </property>
+        <property name="updUserId" type="string">
+            <column name="upd_user_id" length="20">
+                <comment>&#141;X&#144;V&#131;&#134;&#129;[&#131;U&#129;[</comment>
+            </column>
+        </property>
+        <property name="delDate" type="timestamp">
+            <column name="del_date" length="19">
+                <comment>&#141;&#237;&#143;&#156;&#147;&#250;&#142;&#158;</comment>
+            </column>
+        </property>
+        <property name="delUserId" type="string">
+            <column name="del_user_id" length="20">
+                <comment>&#141;&#237;&#143;&#156;&#131;&#134;&#129;[&#131;U&#129;[</comment>
+            </column>
+        </property>
+        <property name="delFlg" type="string">
+            <column name="del_flg" length="1">
+                <comment>&#141;&#237;&#143;&#156;&#131;t&#131;&#137;&#131;O</comment>
+            </column>
+        </property>
+        <property name="updCnt" type="java.lang.Long">
+            <column name="upd_cnt" precision="18" scale="0">
+                <comment>&#141;X&#144;V&#137;&#241;&#144;&#148;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
