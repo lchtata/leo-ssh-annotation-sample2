@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013/07/03 14:17:39 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="TContactsHeader" table="t_contacts_header" catalog="SSHAnnotationSample2">
+        <id name="contactsSeq" type="java.lang.Long">
+            <column name="contacts_seq" precision="18" scale="0" />
+            <generator class="org.hibernate.id.enhanced.TableGenerator">
+               <param name="segment_value">TContactsHeader</param>
+            </generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="94">
+                <comment>&#150;&#188;&#145;O</comment>
+            </column>
+        </property>
+        <property name="nameFamily" type="string">
+            <column name="name_family" length="30">
+                <comment>&#144;&#169;</comment>
+            </column>
+        </property>
+        <property name="nameGiven" type="string">
+            <column name="name_given" length="30">
+                <comment>&#150;&#188;</comment>
+            </column>
+        </property>
+        <property name="nameFamilyPhonetic" type="string">
+            <column name="name_family_phonetic" length="50">
+                <comment>&#144;&#169;&#129;i&#147;&#199;&#130;&#221;&#129;j</comment>
+            </column>
+        </property>
+        <property name="nameGivenPhonetic" type="string">
+            <column name="name_given_phonetic" length="50">
+                <comment>&#150;&#188;&#129;i&#147;&#199;&#130;&#221;&#129;j</comment>
+            </column>
+        </property>
+        <property name="nickName" type="string">
+            <column name="nick_name" length="30">
+                <comment>&#131;j&#131;b&#131;N&#131;l&#129;[&#131;&#128;</comment>
+            </column>
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="4000">
+                <comment>&#131;&#129;&#131;&#130;</comment>
+            </column>
+        </property>
+        <property name="websiteUrl" type="string">
+            <column name="website_url" length="200">
+                <comment>web&#131;T&#131;C&#131;g</comment>
+            </column>
+        </property>
+        <property name="lastUpdateDate" type="timestamp">
+            <column name="last_update_date" length="19" not-null="true">
+                <comment>&#141;&#197;&#143;I&#141;X&#144;V&#147;&#250;</comment>
+            </column>
+        </property>
+        <property name="insDate" type="timestamp">
+            <column name="ins_date" length="19">
+                <comment>&#147;o&#152;^&#147;&#250;&#142;&#158;</comment>
+            </column>
+        </property>
+        <property name="insUserId" type="string">
+            <column name="ins_user_id" length="20">
+                <comment>&#147;o&#152;^&#131;&#134;&#129;[&#131;U&#129;[ID</comment>
+            </column>
+        </property>
+        <property name="updDate" type="timestamp">
+            <column name="upd_date" length="19">
+                <comment>&#141;X&#144;V&#147;&#250;&#142;&#158;</comment>
+            </column>
+        </property>
+        <property name="updUserId" type="string">
+            <column name="upd_user_id" length="20">
+                <comment>&#141;X&#144;V&#131;&#134;&#129;[&#131;U&#129;[ID</comment>
+            </column>
+        </property>
+        <property name="delDate" type="timestamp">
+            <column name="del_date" length="19">
+                <comment>&#141;&#237;&#143;&#156;&#147;&#250;&#142;&#158;</comment>
+            </column>
+        </property>
+        <property name="delUserId" type="string">
+            <column name="del_user_id" length="20">
+                <comment>&#141;&#237;&#143;&#156;&#131;&#134;&#129;[&#131;U&#129;[ID</comment>
+            </column>
+        </property>
+        <property name="delFlg" type="string">
+            <column name="del_flg" length="1">
+                <comment>&#141;&#237;&#143;&#156;&#131;t&#131;&#137;&#131;O</comment>
+            </column>
+        </property>
+        <property name="updCnt" type="java.lang.Long">
+            <column name="upd_cnt">
+                <comment>&#141;X&#144;V&#137;&#241;&#144;&#148;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

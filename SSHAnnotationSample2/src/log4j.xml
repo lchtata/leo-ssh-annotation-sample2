@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="C1" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d] %p %t %c - %m%n" />
+        </layout>
+    </appender>
+    <appender name="FRoot" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${catalina.home}/logs/tomcat.log" />
+        <param name="MaxFileSize" value="10MB" />
+        <param name="MaxBackupIndex" value="9" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d] %p %t %c - %m%n" />
+        </layout>
+    </appender>
+    <appender name="FContext" class="org.apache.log4j.RollingFileAppender">
+        <!-- change file name -->
+        <param name="File" value="${catalina.home}/logs/SSHAnnotationSample2.log" />
+        <param name="MaxFileSize" value="5MB" />
+        <param name="MaxBackupIndex" value="9" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d] %p %t %c - %m%n" />
+        </layout>
+    </appender>
+    <appender name="FContextErr" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${catalina.home}/logs/SSHAnnotationSample2_err.log" />
+        <param name="MaxFileSize" value="5MB" />
+        <param name="MaxBackupIndex" value="9" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d] %p %t %c - %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="warn" />
+        </filter>
+    </appender>
+    <appender name="HRootErr" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${catalina.home}/logs/tomcat_error.html" />
+        <param name="MaxFileSize" value="10MB" />
+        <param name="MaxBackupIndex" value="9" />
+        <layout class="org.apache.log4j.HTMLLayout" />
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="warn" />
+        </filter>
+    </appender>
+
+    <category name="edu.leo">
+        <level value="debug" />
+    </category>
+    <category name="org.hibernate">
+        <level value="info" />
+    </category>
+    <category name="org.hibernate.SQL">
+        <level value="debug" />
+    </category>
+
+    <!-- log4jdbc -->
+    <category name="jdbc.sqlonly">
+        <level value="OFF" />
+    </category>
+
+    <!-- log4jdbc -->
+    <category name="jdbc.sqltiming">
+        <level value="INFO" />
+    </category>
+
+    <!-- log4jdbc -->
+    <category name="jdbc.audit">
+        <level value="OFF" />
+    </category>
+
+    <!-- log4jdbc -->
+    <category name="jdbc.resultset">
+        <level value="OFF" />
+    </category>
+
+    <!-- log4jdbc -->
+    <category name="jdbc.resultsettable">
+        <level value="OFF" />
+    </category>
+
+    <!-- log4jdbc -->
+    <category name="jdbc.connection">
+        <level value="INFO" />
+    </category>
+
+    <root>
+        <level value="info" />
+        <appender-ref ref="C1" />
+        <!-- <appender-ref ref="FRoot" /> -->
+        <appender-ref ref="FContext" />
+        <appender-ref ref="FContextErr" />
+        <!-- <appender-ref ref="HRootErr" /> -->
+    </root>
+
+</log4j:configuration>

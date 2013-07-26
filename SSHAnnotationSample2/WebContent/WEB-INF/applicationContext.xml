@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <!-- 注册PostProcessor - 负责扫描使用了 JSR-250 注释的 Bean，并对它们进行相应的操作 -->
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
+
+    <!-- 配置dataSource -->
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>java:comp/env/jdbc/SSHAnnotationSample2</value>
+        </property>
+    </bean>
+
+    <!-- 配置SessionFactory,由Spring容器来管理Hibernate -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <!-- eneity validate    [none] or [validate] -->
+                <prop key="hibernate.hbm2ddl.auto">none</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <!--
+                <prop key="hibernate.format_sql">true</prop>
+                -->
+                <prop key="hibernate.bytecode.use_reflection_optimizer">true</prop>
+                <prop key="hibernate.hibernate.cache.use_query_cache">true</prop>
+                <!--
+                <prop key="hibernate.connection.release_mode">after_statement</prop>
+                 -->
+                <!-- 配置二级缓存 -->
+                <prop key="hibernate.cache.use_second_level_cache">true</prop>
+                <prop key="hibernate.cache.use_query_cache">true</prop>
+                <prop key="hibernate.cache.use_structured_entries">true</prop>
+                <prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</prop>
+                <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+            </props>
+        </property>
+        <property name="configLocation">
+            <value>/WEB-INF/hibernateContext.cfg.xml</value>
+        </property>
+        <!--
+        <property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration" />
+         -->
+        <property name="packagesToScan">
+            <list>
+                <value>edu.leo.dao</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 定义事务管理器（声明式的事务） -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!-- 让Spring通过自动扫描来查询和管理Bean (添加这句之后<context:annotation-config />可以不写) -->
+    <context:component-scan base-package="edu.leo" />
+
+    <!-- 启动spring注解功能 -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <!--     -->
+    <bean id="systemProperty" class="edu.leo.common.system.SystemProperty" init-method="init" />
+
+</beans>
