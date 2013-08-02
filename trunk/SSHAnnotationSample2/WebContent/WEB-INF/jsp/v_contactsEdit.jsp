@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="tiles" uri="/tiles-tags"%>
 
-<p class="leo_title">电话号码编辑</p>
+<p id="contactEditTitle">电话号码编辑</p>
 <p>
     <font color="red">
         <s:fielderror />
@@ -25,7 +25,7 @@
     </table>
     <br>
 
-    <table class="leo_view">
+    <table id="contactEditTable">
         <tr>
             <th style="width: 130px;">识别号：</th>
             <td>

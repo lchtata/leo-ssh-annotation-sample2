@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="tiles" uri="/tiles-tags"%>
 
-<p class="leo_title">电话号码一览</p>
+<p id="contactListTitle">电话号码一览</p>
 <p>
     <font color="red">
         <s:fielderror />
@@ -16,7 +16,7 @@
     <s:hidden name="pageCount" />
     <s:hidden name="pageNum" />
 
-    <table class="leo_view">
+    <table id="contactListSrchTable">
         <tr>
             <th style="width: 130px;">姓名：</th>
             <td><s:textfield name="srchName" id="srchName" /></td>
@@ -98,7 +98,7 @@
         </tr>
         <tr>
             <td>
-                <table class="leo_table" style="width: 680px; word-break: break-all;">
+                <table id="contactListRstTable" style="width: 680px; word-break: break-all;">
                     <tr>
                         <th width="20px">#</th>
                         <th width="120px">修改</th>

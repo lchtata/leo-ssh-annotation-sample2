@@ -9,6 +9,10 @@ String themeName = (String)session.getAttribute(edu.leo.common.CommonConst.SESSI
     <tiles:putAttribute name="originalJavascript">
         <script language="JavaScript" type="text/javascript">
             $(document).ready(function(){
+
+                // jquery ui
+                $("#commonResultTItle").leoStyleTitle();
+
                 $("#returnBtn").click(function(){
                     var vUrl = $("#returnUrl").val();
                     window.location.href = vUrl;

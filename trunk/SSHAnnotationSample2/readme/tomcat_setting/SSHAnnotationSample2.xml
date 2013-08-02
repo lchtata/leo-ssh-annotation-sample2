@@ -1,0 +1,21 @@
+<Context path="/SSHAnnotationSample2" reloadable="true"
+    docBase="C:/Eclipse3.7/Privete_Leo/SSHAnnotationSample2/WebContent"
+    workDir="C:/Tomcat 7.0.41/work/Catalina/localhost/SSHAnnotationSample2">
+<!-- Extra info begin -->
+<Resource
+    name="jdbc/SSHAnnotationSample2"
+    type="javax.sql.DataSource"
+    driverClassName="net.sf.log4jdbc.DriverSpy"
+    url="jdbc:log4jdbc:mysql://localhost:3306/SSHAnnotationSample2"
+    username="root"
+    password="oasuser"
+    maxActive="150"
+    maxIdle="75"
+    minIdle="25"
+    maxWait="300000"
+    removeAbandoned="true"
+    logAbandoned="true"
+    removeAbandonedTimeout="30" />
+<!-- Extra info end -->
+	<Logger className="org.apache.catalina.logger.SystemOutLogger" verbosity="4" timestamp="true"/>
+</Context>
