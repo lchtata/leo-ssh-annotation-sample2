@@ -9,6 +9,12 @@ themeName += "_popup";
 <tiles:insertDefinition name='<%=themeName %>'>
     <tiles:putAttribute name="originalJavascript">
         <script language="JavaScript" type="text/javascript">
+            $(document).ready(function(){
+                // jquery ui
+                $("#contactDetailTitle").leoStyleTitle();
+                $("#contactDetailHeaderTable").leoStyleTable({oddRowColor: false});
+                $("#contactDetailDetailTable").leoStyleTable();
+            });
         </script>
     </tiles:putAttribute>
     <tiles:putAttribute name="body" value="/WEB-INF/jsp/v_contactsDetailShow.jsp" />

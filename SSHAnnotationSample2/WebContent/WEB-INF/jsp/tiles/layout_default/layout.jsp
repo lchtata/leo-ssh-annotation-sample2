@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link type="text/css" rel="stylesheet" href="css/jqueryuiplugin/superfish-v1.7.4/superfish_custom.css" />
 <link type="text/css" rel="stylesheet" href="css/jqueryui/layout_default/jquery-ui-1.9.2.default.min.css" />
-<link type="text/css" rel="stylesheet" href="css/layout_default/common.css" />
+<link type="text/css" rel="stylesheet" href="css/common.css" />
 <style type="text/css">
     .rtl {
         direction: rtl;
@@ -20,6 +20,7 @@
 <script type="text/javascript" src="js/jqueryui/layout_default/jquery-ui-1.9.2.default.min.js"></script>
 <script type="text/javascript" src="js/jqueryplugin/superfish-v1.7.4/hoverIntent.js"></script>
 <script type="text/javascript" src="js/jqueryplugin/superfish-v1.7.4/superfish.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
 <title>Leo Edu</title>
 <script language="JavaScript" type="text/javascript">
     $(document).ready(function() {
@@ -30,14 +31,8 @@
             speed:       'fast',                          // faster animation speed
             autoArrows:  false                            // disable generation of arrow mark-up
         });
+        superFishMenu.leoStyleMenu();
 
-        $("ul.sf-menu li").addClass("ui-state-default");
-
-        $("ul.sf-menu li").hover(function() {
-            $(this).addClass('ui-state-hover');
-        }, function() {
-            $(this).removeClass('ui-state-hover');
-        });
 
         $('#layoutBlueImg').click(function(){
             $("#nowPageUrl").val(window.location.href);

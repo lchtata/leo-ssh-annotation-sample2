@@ -15,6 +15,10 @@ String themeName = (String)session.getAttribute(edu.leo.common.CommonConst.SESSI
             $(document).ready(function(){
                 //alert("contactsEdit");
 
+                // jquery ui
+                $("#contactEditTitle").leoStyleTitle();
+                $("#contactEditTable").leoStyleTable({oddRowColor: false});
+
                 /**
                  * update button
                  */

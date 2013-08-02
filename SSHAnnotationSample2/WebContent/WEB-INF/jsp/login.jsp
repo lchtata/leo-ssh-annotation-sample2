@@ -12,11 +12,13 @@
 </style>
 <script type="text/javascript" src="js/jquery/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jqueryui/layout_default/jquery-ui-1.9.2.default.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
 <title>Login</title>
 <script language="JavaScript" type="text/javascript">
     $(document).ready(function(){
         // jquery ui
         $("input[type='button']").button();
+        $("#loginTable").leoStyleTable({oddRowColor: false});
 
         $("#loginBtn").click(function(){
             doLogin();
@@ -64,16 +66,16 @@
                                     <s:property value="resultMsg" />
                                 </font>
                             </span>
-                            <table cellspacing="13" cellpadding="0" align="center" style="margin-top: 40px;">
+                            <table id="loginTable" cellspacing="13" cellpadding="0" align="center" style="margin-top: 40px;">
                                 <tbody>
                                     <tr>
-                                        <td><span style="font-family: 'Meiryo';">login id</span></td>
+                                        <th><span style="font-family: 'Meiryo';">login id</span></th>
                                         <td>
                                         <s:textfield name="loginId" id="loginId" cssStyle="ime-mode: disabled;" size="18" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><span style="font-family: 'Meiryo';">password</span></td>
+                                        <th><span style="font-family: 'Meiryo';">password</span></th>
                                         <td>
                                         <s:password name="password" id="password" size="20" /></td>
                                     </tr>

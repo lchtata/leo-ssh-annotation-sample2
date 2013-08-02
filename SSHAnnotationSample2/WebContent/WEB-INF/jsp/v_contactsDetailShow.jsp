@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="tiles" uri="/tiles-tags"%>
 
-<p class="leo_title">详细一览</p>
+<p id="contactDetailTitle">详细一览</p>
 <p>
     <font color="red">
         <s:fielderror />
@@ -11,7 +11,7 @@
     <s:actionmessage />
 </p>
 
-<table class="leo_view">
+<table id="contactDetailHeaderTable">
     <tr>
         <th style="width: 130px;">
             识别号：
@@ -56,7 +56,7 @@
 
 <br>
 
-<table class="leo_table" style="width: 680px; word-break: break-all;">
+<table id="contactDetailDetailTable" style="width: 680px; word-break: break-all;">
     <tr>
         <th width="20px">#</th>
         <th>电话类别</th>

@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="tiles" uri="/tiles-tags"%>
 
-<p class="leo_title">処理完成</p>
+<p id="commonResultTItle">処理完成</p>
 <p>
     <font color="red">
         <s:fielderror />
