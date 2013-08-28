@@ -71,6 +71,7 @@ public class SystemProperty {
         String result = null;
         String value = getProperty(key);
         if (StringUtils.isEmpty(value)) {
+            LogFactory.getLog(SystemProperty.class).warn("!!!!there is no value with property key:[" + key + "]...return default value:[" + defaultValue + "]");
             result = defaultValue;
         } else {
             result = value;

@@ -12,6 +12,7 @@
 </style>
 <script type="text/javascript" src="js/jquery/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jqueryui/layout_default/jquery-ui-1.9.2.default.min.js"></script>
+<script type="text/javascript" src="js/jqueryplugin/blockui-2.64/jquery.blockUI.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <title>Login</title>
 <script language="JavaScript" type="text/javascript">
@@ -42,6 +43,8 @@
     });
 
     function doLogin(){
+        showLoading();
+
         $("#loginForm").attr("action", "login!login.action");
         $("#loginForm").submit();
     }

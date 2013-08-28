@@ -20,6 +20,7 @@
 <script type="text/javascript" src="js/jqueryui/layout_default/jquery-ui-1.9.2.default.min.js"></script>
 <script type="text/javascript" src="js/jqueryplugin/superfish-v1.7.4/hoverIntent.js"></script>
 <script type="text/javascript" src="js/jqueryplugin/superfish-v1.7.4/superfish.min.js"></script>
+<script type="text/javascript" src="js/jqueryplugin/blockui-2.64/jquery.blockUI.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <title>Leo Edu</title>
 <script language="JavaScript" type="text/javascript">
@@ -95,111 +96,40 @@
                 <span style="color:silver;font-weight:bold;">∥</span>
                 <a id="logoutLink" href="login!logout.action">Logout</a>
 
-
             </td>
         </tr>
         <tr>
             <td>
                 <%--Menu--%>
                 <ul class="sf-menu" id="menuul">
-                    <li class="current">
-                        <a href="javascript:void(0);">联系人管理</a>
-                        <ul>
-                            <li>
-                                <a href="contacts-list.action">联系人列表</a>
-                            </li>
-                            <li class="current">
-                                <a href="javascript:void(0);">menu item11</a>
-                                <ul>
-                                    <li class="current"><a href="javascript:void(0);">menu item</a></li>
-                                    <li><a href="javascript:void(0);">menu item111</a></li>
-                                    <li class="ui-state-disabled"><a href="javascript:void(0);">menu item112</a></li>
-                                    <li><a href="javascript:void(0);">menu item113</a></li>
-                                    <li><a href="javascript:void(0);">menu item114</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">menu item12</a>
-                                <ul>
-                                    <li><a href="javascript:void(0);">menu item121</a></li>
-                                    <li><a href="javascript:void(0);">menu item122</a></li>
-                                    <li><a href="javascript:void(0);">menu item123</a></li>
-                                    <li><a href="javascript:void(0);">menu item124</a></li>
-                                    <li><a href="javascript:void(0);">menu item125</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">menu item13</a>
-                                <ul>
-                                    <li><a href="javascript:void(0);">menu item131</a></li>
-                                    <li><a href="javascript:void(0);">menu item132</a></li>
-                                    <li><a href="javascript:void(0);">menu item133</a></li>
-                                    <li><a href="javascript:void(0);">menu item134</a></li>
-                                    <li><a href="javascript:void(0);">menu item135</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">menu item 2</a>
-                       </li>
-                    <li>
-                        <a href="javascript:void(0);">menu item 3</a>
-                        <ul>
-                            <li>
-                                <a href="javascript:void(0);">menu item31</a>
-                                <ul>
-                                    <li><a href="javascript:void(0);">short1</a></li>
-                                    <li><a href="javascript:void(0);">short2</a></li>
-                                    <li><a href="javascript:void(0);">short3</a></li>
-                                    <li><a href="javascript:void(0);">short4</a></li>
-                                    <li><a href="javascript:void(0);">short5</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">menu item32</a>
-                                <ul>
-                                    <li><a href="javascript:void(0);">menu item321</a></li>
-                                    <li><a href="javascript:void(0);">menu item322</a></li>
-                                    <li><a href="javascript:void(0);">menu item323</a></li>
-                                    <li><a href="javascript:void(0);">menu item324</a></li>
-                                    <li><a href="javascript:void(0);">menu item325</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">menu item33</a>
-                                <ul>
-                                    <li><a href="javascript:void(0);">menu item331</a></li>
-                                    <li><a href="javascript:void(0);">menu item332</a></li>
-                                    <li><a href="javascript:void(0);">menu item333</a></li>
-                                    <li><a href="javascript:void(0);">menu item334</a></li>
-                                    <li><a href="javascript:void(0);">menu item335</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">menu item34</a>
-                                <ul>
-                                    <li><a href="javascript:void(0);">menu item341</a></li>
-                                    <li><a href="javascript:void(0);">menu item342</a></li>
-                                    <li><a href="javascript:void(0);">menu item343</a></li>
-                                    <li><a href="javascript:void(0);">menu item344</a></li>
-                                    <li><a href="javascript:void(0);">menu item345</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">menu item35</a>
-                                <ul>
-                                    <li><a href="javascript:void(0);">menu item351</a></li>
-                                    <li><a href="javascript:void(0);">menu item352</a></li>
-                                    <li><a href="javascript:void(0);">menu item353</a></li>
-                                    <li><a href="javascript:void(0);">menu item354</a></li>
-                                    <li><a href="javascript:void(0);">menu item355</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="javascript:void(0);">menu item 4</a></li>
-                    <li class="ui-state-disabled"><a href="javascript:void(0);">menu item 5</a></li>
+                    <s:iterator value="#session.SESSION_KEY_MENULIST" id="element">
+                        <%--Menu top--%>
+                        <li <s:if test='#element.isValid=="1"'></s:if><s:else>class="ui-state-disabled"</s:else>>
+                            <a href='<s:if test="#element.url==null">javascript:void(0);</s:if><s:else><s:property value="#element.url" /></s:else>'><s:property value="#element.menuNm" /></a>
+
+                            <%--Menu sub 1--%>
+                            <s:if test="#element.subMenuList!=null">
+                            <ul>
+                            <s:iterator value="#element.subMenuList" id="subElement">
+                                <li <s:if test='#subElement.isValid=="1"'></s:if><s:else>class="ui-state-disabled"</s:else>>
+                                    <a href='<s:if test="#subElement.url==null">javascript:void(0);</s:if><s:else><s:property value="#subElement.url" /></s:else>'><s:property value="#subElement.menuNm" /></a>
+
+                                    <%--Menu sub 2--%>
+                                    <s:if test="#subElement.subMenuList!=null">
+                                    <ul>
+                                    <s:iterator value="#subElement.subMenuList" id="sub3rdElement">
+                                        <li <s:if test='#sub3rdElement.isValid=="1"'></s:if><s:else>class="ui-state-disabled"</s:else>>
+                                            <a href='<s:if test="#sub3rdElement.url==null">javascript:void(0);</s:if><s:else><s:property value="#sub3rdElement.url" /></s:else>'><s:property value="#sub3rdElement.menuNm" /></a>
+                                        </li>
+                                    </s:iterator>
+                                    </ul>
+                                    </s:if>
+                                </li>
+                            </s:iterator>
+                            </ul>
+                            </s:if>
+                        </li>
+                    </s:iterator>
                 </ul>
             </td>
         </tr>

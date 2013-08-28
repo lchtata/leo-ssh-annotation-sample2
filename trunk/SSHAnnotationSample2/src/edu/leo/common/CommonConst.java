@@ -4,6 +4,7 @@ public class CommonConst {
 
     public static final String SESSION_KEY_LOGIN_INFO = "SESSION_KEY_LOGIN_INFO";
     public static final String SESSION_KEY_THEME = "SESSION_KEY_THEME";
+    public static final String SESSION_KEY_MENULIST = "SESSION_KEY_MENULIST";
 
     /** see [tiles.xml] */
     public static final String THEME_DEFAULT = "layout_default";

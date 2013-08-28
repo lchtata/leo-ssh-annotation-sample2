@@ -21,12 +21,16 @@ String themeName = (String)session.getAttribute(edu.leo.common.CommonConst.SESSI
                 $("#contactListRstTable").leoStyleTable();
 
                 $("#searchBtn").click(function(){
+                    showLoading();
+
                     var contactListForm = $("#contactListForm");
                     contactListForm.attr("action", "contacts-list.action");
                     contactListForm.submit();
                 });
 
                 $("#newBtn").click(function(){
+                    showLoading();
+
                     $("#acctionType").val(ACTION_TYPE_NEW);
                     var toEditForm = $("#toEditForm");
                     toEditForm.attr("action", "contacts-edit.action");
@@ -34,6 +38,8 @@ String themeName = (String)session.getAttribute(edu.leo.common.CommonConst.SESSI
                 });
 
                 $("input[name='updateBtn']").click(function(){
+                    showLoading();
+
                     $("#acctionType").val(ACTION_TYPE_EDIT);
                     var selectedSeq = $(this).parent().find("input[name=hidContactsSeq]").val();
                     $("#contactsSeq").val(selectedSeq);
@@ -49,24 +55,32 @@ String themeName = (String)session.getAttribute(edu.leo.common.CommonConst.SESSI
             });
 
             function gotoFirst(){
+                showLoading();
+
                 var contactListForm = $("#contactListForm");
                 contactListForm.attr("action", "contacts-list!gotoFirst.action");
                 contactListForm.submit();
             }
 
             function gotoPrev(){
+                showLoading();
+
                 var contactListForm = $("#contactListForm");
                 contactListForm.attr("action", "contacts-list!gotoPrev.action");
                 contactListForm.submit();
             }
 
             function gotoNext(){
+                showLoading();
+
                 var contactListForm = $("#contactListForm");
                 contactListForm.attr("action", "contacts-list!gotoNext.action");
                 contactListForm.submit();
             }
 
             function gotoLast(){
+                showLoading();
+
                 var contactListForm = $("#contactListForm");
                 contactListForm.attr("action", "contacts-list!gotoLast.action");
                 contactListForm.submit();

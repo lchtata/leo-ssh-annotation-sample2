@@ -24,6 +24,8 @@ String themeName = (String)session.getAttribute(edu.leo.common.CommonConst.SESSI
                  */
                 $("#updateBtn").click(function(){
                     if(confirm("是否更新？")){
+                        showLoading();
+
                         var contactEditForm = $("#contactEditForm");
                         contactEditForm.attr("action", "contacts-edit!update.action");
                         contactEditForm.submit();
@@ -35,6 +37,8 @@ String themeName = (String)session.getAttribute(edu.leo.common.CommonConst.SESSI
                  */
                 $("#returnBtn").click(function(){
                     if(confirm("您现在有编辑中的内容，是否放弃编辑返回？")){
+                        showLoading();
+
                         var toListForm = $("#toListForm");
                         toListForm.attr("action", "contacts-list.action");
                         toListForm.submit();

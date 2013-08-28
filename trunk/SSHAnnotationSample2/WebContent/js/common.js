@@ -129,3 +129,26 @@
         });
     };
 })(jQuery);
+
+
+showLoading = function() {
+    jQuery.blockUI({ message:'<h1><img src="./img/loadinfo.net.gif"/><br/><font style="font-size:16px;text-shadow:2px 2px 2px #808080;" color="#ffffff">Please wait</font></h1>',
+        fadeIn: 30,
+        fadeOut: 30,
+        showOverlay: true,
+        centerY: true,
+        overlayCSS:{opacity:0.2},
+        css: {
+            border: '10px',
+            padding: '15px',
+            color: '#000000',
+            backgroundColor: '#808080',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            opacity: .8,
+            color: '#fff'
+        }
+     });
+
+    return;
+};

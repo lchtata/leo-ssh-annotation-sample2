@@ -20,6 +20,7 @@
 <script type="text/javascript" src="js/jqueryui/layout_yellow/jquery-ui-1.9.2.sunny.min.js"></script>
 <script type="text/javascript" src="js/jqueryplugin/superfish-v1.7.4/hoverIntent.js"></script>
 <script type="text/javascript" src="js/jqueryplugin/superfish-v1.7.4/superfish.min.js"></script>
+<script type="text/javascript" src="js/jqueryplugin/blockui-2.64/jquery.blockUI.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <title>Leo Edu</title>
 <script language="JavaScript" type="text/javascript">
